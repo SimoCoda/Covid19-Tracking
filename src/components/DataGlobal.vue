@@ -1,50 +1,50 @@
 <template>
-  <h1 class="text-xl text-[#ff8901] mt-3 xl:text-5xl">COVID-19 tracking</h1>
-  <h1 class="text-6xl font-bold text-[#ff8901] mb-8 xl:text-[88px]" @click="goHome">USA</h1>
-  <div class="w-80 h-12 bg-cyan-300 bg-opacity-70 m-auto rounded-full mb-8 xl:w-[800px] xl:h-[80px] flex">
-      <button class="w-56 h-10 bg-white rounded-2xl font-bold text-base mt-[4px] m-2 xl:w-[430px] xl:text-4xl xl:h-[70px] xl:rounded-[30px]" @click="goHome">Global</button>
-      <button class="w-56 h-10 rounded-2xl font-bold text-base mt-[4px] m-2 xl:w-[430px] xl:text-4xl xl:h-[70px] xl:rounded-[30px]" @click="goStates">States</button>
+  <h1 class="text-xl text-[#ff8901] mt-3 xl:text-5xl md:text-5xl">COVID-19 tracking</h1>
+  <h1 class="text-6xl font-bold text-[#ff8901] mb-8 xl:text-[88px] md:text-[80px]" @click="goHome">USA</h1>
+  <div class="w-80 h-12 bg-cyan-300 bg-opacity-70 m-auto rounded-full mb-8 xl:w-[800px] xl:h-[80px] flex md:w-[650px] md:h-[60px]">
+      <button class="w-56 h-10 bg-white rounded-2xl font-bold text-base mt-[4px] m-2 xl:w-[430px] xl:text-4xl xl:h-[70px] xl:rounded-[30px] md:w-[340px] md:text-3xl md:h-[50px] md:rounded-[30px]" @click="goHome">Global</button>
+      <button class="w-56 h-10 rounded-2xl font-bold text-base mt-[4px] m-2 xl:w-[430px] xl:text-4xl xl:h-[70px] xl:rounded-[30px] md:w-[340px] md:text-3xl md:h-[50px] md:rounded-[30px]" @click="goStates">States</button>
   </div>
   <div class="mb-10">
-    <p class="text-xl font-light xl:text-5xl">Monitor US COVID-19 data</p>
-    <div class="mt-5 xl:mt-10">
-    <div class="flex w-72 m-auto mb-5 xl:w-[650px] xl:mb-10">
-      <div class="float-left w-36 h-24 bg-[#ff5959] mr-12 p-2 rounded-2xl xl:w-[350px] xl:h-52 xl:mr-16">
-        <h2 class="text-[17px] text-white mb-4 xl:text-[46px] xl:mb-12">Total cases:</h2>
-        <h2 class="text-white font-bold text-xl xl:text-[52px]">{{ totalCases }}</h2>
+    <p class="text-xl font-light xl:text-5xl md:text-5xl">Monitor US COVID-19 data</p>
+    <div class="mt-5 xl:mt-10 md:mt-10">
+    <div class="flex w-72 m-auto mb-5 xl:w-[650px] xl:mb-10 md:w-[540px] md:mb-10">
+      <div class="float-left w-36 h-24 bg-[#ff5959] mr-12 p-2 rounded-2xl xl:w-[350px] xl:h-52 xl:mr-16 md:w-[240px] md:h-36 md:mr-16">
+        <h2 class="text-[17px] text-white mb-4 xl:text-[46px] xl:mb-12 md:text-[30px] md:mb-10">Total cases:</h2>
+        <h2 class="text-white font-bold text-xl xl:text-[52px] md:text-[36px]">{{ totalCases }}</h2>
       </div>
-      <div class="float-right w-36 bg-[#ffb259] p-2 rounded-2xl xl:w-[350px] xl:h-52">
-        <h2 class="text-[17px] text-white mb-4 xl:text-[46px] xl:mb-12">Total deaths:</h2>
-        <h2 class="text-white font-bold text-xl xl:text-[52px]">{{ totalDeaths }}</h2>
+      <div class="float-right w-36 bg-[#ffb259] p-2 rounded-2xl xl:w-[350px] xl:h-52 md:w-[240px] md:h-36">
+        <h2 class="text-[17px] text-white mb-4 xl:text-[46px] xl:mb-12 md:text-[30px] md:mb-10">Total deaths:</h2>
+        <h2 class="text-white font-bold text-xl xl:text-[52px] md:text-[36px]">{{ totalDeaths }}</h2>
       </div>
     </div>  
-    <div class="flex m-auto w-80 mb-5 xl:w-[800px] xl:mb-10">
-    <div class="float-left ml-0 w-28 bg-[#9059ff] mr-4 p-2 rounded-2xl xl:w-[350px] xl:h-44 xl:mr-14">
-        <h2 class="text-[17px] text-white mb-7 xl:text-[35px] xl:mb-12">Hospitalized:</h2>
-        <h2 class="text-white font-bold text-xl xl:text-[52px]">{{ totalHospitalizedCumulative }}</h2>
+    <div class="flex m-auto w-80 mb-5 xl:w-[800px] xl:mb-10 md:w-[670px] md:mb-10">
+    <div class="float-left ml-0 w-28 bg-[#9059ff] mr-4 p-2 rounded-2xl xl:w-[350px] xl:h-44 xl:mr-14 md:w-[200px] md:h-36 md:mr-10">
+        <h2 class="text-[17px] text-white mb-7 xl:text-[35px] xl:mb-12 md:text-[30px] md:mb-10">Hospitalized:</h2>
+        <h2 class="text-white font-bold text-xl xl:text-[52px] md:text-[36px]">{{ totalHospitalizedCumulative }}</h2>
       </div>
-      <div class="float-right w-28 bg-[#4cb5ff] mr-4 p-2 rounded-2xl xl:w-[350px] xl:h-44 xl:mr-14">
-        <h2 class="text-[17px] text-white mb-7 xl:text-[35px] xl:mb-12">In ICU:</h2>
-        <h2 class="text-white font-bold text-xl xl:text-[52px]">{{ totalInIcuCumulative }}</h2>
+      <div class="float-right w-28 bg-[#4cb5ff] mr-4 p-2 rounded-2xl xl:w-[350px] xl:h-44 xl:mr-14 md:w-[200px] md:h-36 md:mr-10">
+        <h2 class="text-[17px] text-white mb-7 xl:text-[35px] xl:mb-12 md:text-[30px] md:mb-10">In ICU:</h2>
+        <h2 class="text-white font-bold text-xl xl:text-[52px] md:text-[36px]">{{ totalInIcuCumulative }}</h2>
       </div>
-      <div class="float-right w-36 bg-[#4cd97b] p-2 rounded-2xl xl:w-[350px] xl:h-44">
-        <h2 class="text-[17px] text-white mb-1 xl:text-[35px] xl:mb-12">On ventilator:</h2>
-        <h2 class="text-white font-bold text-xl xl:text-[52px]">{{ totalOnVentilatorCumulative }}</h2>
-      </div>
-    </div>
-    <div class="flex m-auto w-72 mb-10 xl:w-[650px] xl:mb-20">
-      <div class="float-right w-36 bg-[#d77839] mr-12 p-2 rounded-2xl xl:w-[350px] xl:h-64 xl:mr-16">
-        <h2 class="text-[17px] text-white mb-4 xl:text-[46px] xl:mb-12">Total test results:</h2>
-        <span class="text-white font-bold text-xl xl:text-[52px]">{{ totalTotalTestResults }}</span>
-      </div>
-      <div class="float-right w-36 bg-[#502394] p-2 rounded-2xl xl:w-[350px] xl:h-64">
-        <h2 class="text-[17px] text-white mb-4 xl:text-[46px] xl:mb-12">Total negative:</h2>
-        <span class="text-white font-bold text-xl xl:text-[52px]">{{ totalNegative }}</span>
+      <div class="float-right w-36 bg-[#4cd97b] p-2 rounded-2xl xl:w-[350px] xl:h-44 md:w-[200px] md:h-36">
+        <h2 class="text-[17px] text-white mb-1 xl:text-[35px] xl:mb-12 md:text-[30px] md:mb-10">On ventilator:</h2>
+        <h2 class="text-white font-bold text-xl xl:text-[52px] md:text-[36px]">{{ totalOnVentilatorCumulative }}</h2>
       </div>
     </div>
-      <p class="text-sm font-extralight italic mb-3 xl:text-[45px] xl:mb-12">Graphs related to <b>covid-19</b> data in the last few months</p>
-      <div class="xl:flex">
-        <div class="bg-white rounded-lg shadow-lg p-6 mb-6 xl:mr-28 xl:w-[600px]">
+    <div class="flex m-auto w-72 mb-10 xl:w-[650px] xl:mb-20 md:w-[540px] md:mb-10">
+      <div class="float-right w-36 bg-[#d77839] mr-12 p-2 rounded-2xl xl:w-[350px] xl:h-64 xl:mr-16 md:w-[240px] md:h-36 md:mr-16">
+        <h2 class="text-[17px] text-white mb-4 xl:text-[46px] xl:mb-12 md:text-[30px] md:mb-10">Total test results:</h2>
+        <span class="text-white font-bold text-xl xl:text-[52px] md:text-[36px]">{{ totalTotalTestResults }}</span>
+      </div>
+      <div class="float-right w-36 bg-[#502394] p-2 rounded-2xl xl:w-[350px] xl:h-64 md:w-[240px] md:h-36">
+        <h2 class="text-[17px] text-white mb-4 xl:text-[46px] xl:mb-12 md:text-[30px] md:mb-10">Total negative:</h2>
+        <span class="text-white font-bold text-xl xl:text-[52px] md:text-[36px]">{{ totalNegative }}</span>
+      </div>
+    </div>
+      <p class="text-sm font-extralight italic mb-3 xl:text-[45px] xl:mb-12 md:text-[33px] md:mb-12">Graphs related to <b>covid-19</b> data in the last few months</p>
+      <div class="xl:flex md:flex">
+        <div class="bg-white rounded-lg shadow-lg p-6 mb-6 xl:mr-28 xl:w-[600px] md:mr-16">
           <div>
             <canvas id="monthly-cases-chart"></canvas>
           </div>
@@ -55,8 +55,8 @@
           </div>
         </div>
       </div>
-      <div class="xl:flex">
-        <div class="bg-white rounded-lg shadow-lg p-6 mb-6 xl:mr-28 xl:w-[600px]">
+      <div class="xl:flex md:flex">
+        <div class="bg-white rounded-lg shadow-lg p-6 mb-6 xl:mr-28 xl:w-[600px] md:mr-16">
           <div>
             <canvas id="monthly-hospitalized-chart"></canvas>
           </div>
@@ -67,8 +67,8 @@
           </div>
         </div>
       </div>  
-      <div class="xl:flex">
-        <div class="bg-white rounded-lg shadow-lg p-6 mb-6 xl:mr-28 xl:w-[600px]">
+      <div class="xl:flex md:flex">
+        <div class="bg-white rounded-lg shadow-lg p-6 mb-6 xl:mr-28 xl:w-[600px] md:mr-16">
           <div>
             <canvas id="monthly-onventilator-chart"></canvas>
           </div>
